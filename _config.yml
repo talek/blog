@@ -5,7 +5,7 @@ permalink:           pretty
 relative_permalinks: true
 
 # Setup
-title:               Poole
+title:               Alexandru Tica Blog
 tagline:             The Jekyll Butler
 url:                 http://getpoole.com
 paginate:            1
