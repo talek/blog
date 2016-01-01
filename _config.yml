@@ -6,7 +6,7 @@ relative_permalinks: true
 
 # Setup
 title:               Alexandru Tica Blog
-tagline:             The Jekyll Butler
+tagline:             Random thoughts
 url:                 http://talek.github.io/blog/
 paginate:            1
 baseurl:             ""
