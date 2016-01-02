@@ -11,8 +11,8 @@ title:            Alec's Blog
 tagline:          'Random Thoughts...'
 description:      'Notes, random thougths, whatever...'
 url:              http://talek.github.io/blog/
-#baseurl:          http://talek.github.io/blog/
-baseurl:          /
+baseurl:          http://talek.github.io/blog/
+#baseurl:          /
 
 author:
   name:           'Alexandru Tica'
