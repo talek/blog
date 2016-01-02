@@ -417,9 +417,8 @@ So, I installed "squid" from the official repositories:
 
     pacman -S squid
 
-And then I used
-[this](https://dl.dropboxusercontent.com/u/6430366/blog/squid.conf)
-configuration file as `/etc/squid/squid.conf`.
+Usually it's just a matter of changing the bind address of the server in the
+configuration file, which is `/etc/squid/squid.conf`.
 
 The last step was to enable the squid service:
 

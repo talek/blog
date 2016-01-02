@@ -16,7 +16,7 @@ Setup Overview
 
 Below is what we'd need for this playground:
 
-![Multipath Playground](https://dl.dropboxusercontent.com/u/6430366/blog/multipath_openfiler.png "Multipath Playground")
+![Multipath Playground]({{ site.base_url }}assets/images/multipath_openfiler.png "Multipath Playground")
 
 `jupiter` and `sun` are both virtual machines running on VirtualBox. `jupiter`
 is an OEL 6.3 and `sun` is an [openfiler](https://www.openfiler.com/).
@@ -39,24 +39,24 @@ The default credentials are: `openfiler/password`.
 
 The first step is to enable the "iSCSI target server" service.
 
-![iSCSI target](https://dl.dropboxusercontent.com/u/6430366/blog/iscsi_service.gif "iSCSI target")
+![iSCSI target]({{ site.base_url }}assets/images/iscsi_service.gif "iSCSI target")
 
 Then we need to grant access to `jupiter` in order to access the `san`.
 
-![ACL Network](https://dl.dropboxusercontent.com/u/6430366/blog/openfiler_acl.png "ACL Network")
+![ACL Network]({{ site.base_url }}assets/images/openfiler_acl.png "ACL Network")
 
 Ready now to prepare the storage. Go to "Volumes/Block Devices":
 
-![Block Devices](https://dl.dropboxusercontent.com/u/6430366/blog/block_device.png "Block Devices")
+![Block Devices]({{ site.base_url }}assets/images/block_device.png "Block Devices")
 
 The disk we want to use for publishing is `/dev/sdb`. Click on that link in
 order to partition it. Then create a big partition, spanning the entire disk.
 
-![Partition](https://dl.dropboxusercontent.com/u/6430366/blog/openfiler_partition.png "Partition")
+![Partition]({{ site.base_url }}assets/images/openfiler_partition.png "Partition")
 
 Next, go to "Volumes/Volume Groups" and create a volume group called "oracle".
 
-![VG Management](https://dl.dropboxusercontent.com/u/6430366/blog/vg_management.png "VG Management")
+![VG Management]({{ site.base_url }}assets/images/vg_management.png "VG Management")
 
 Now, we can create the logical volumes. Go to "Volumes/Add Volume" and create a
 new volume of type "block". I gave 10G and I call it `jupiter1`.
@@ -67,7 +67,7 @@ It's time now to configure our openfiler as an iSCSI target server. Go to
 volume. We also need to configure ACLs on the volume level using the "Network
 ACL" tab:
 
-![Volume ACL](https://dl.dropboxusercontent.com/u/6430366/blog/volume_acl.png "Volume ACL")
+![Volume ACL]({{ site.base_url }}assets/images/volume_acl.png "Volume ACL")
 
 Jupiter Setup
 =============
