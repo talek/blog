@@ -32,6 +32,6 @@ title: About
 </script>
 
 Currently I'm working as an Oracle DBA at [Profidata
-Group](http://www.profidatagroup.com/en/home/).
+Group](http://www.profidatagroup.com/en/home/) and [SCC](http://www.scc.com/).
 
 Thanks for reading!
