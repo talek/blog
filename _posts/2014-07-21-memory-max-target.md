@@ -1,6 +1,7 @@
 ---
 layout: post
-title: MEMORY_TARGET not supported on this system
+title: MEMORY_TARGET Not Supported on This System
+comments: true
 ---
 
 I wasn't aware, until this very moment, that there's a strong correlation
@@ -39,7 +40,7 @@ Let's restart the instance:
 
 Ups, it doesn't start up because the `MEMORY_MAX_TARGET` is set too high.
 
-More than one database
+More Than One Database
 ----------------------
 
 If there are many databases running on the same host then things start to get

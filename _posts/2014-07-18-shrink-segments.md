@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Shrink Segments
+comments: true
 ---
 
 I don't know why I haven't paid more attention to this feature. It is around

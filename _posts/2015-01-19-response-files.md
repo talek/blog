@@ -1,6 +1,7 @@
 ---
 layout: post
 Title: Response Files
+comments: true
 ---
 
 One of the frequent tasks a DBA must carry out is to install Oracle software on

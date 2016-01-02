@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Keep SYS clean, please...
+comments: true
 ---
 
 One of the customers handed over to us a delivery script to be executed under SYS. We took a look and, guess what? They wanted
@@ -12,7 +13,7 @@ their R&D department came up with this idea of creating a view in ``SYS`` based 
 view to the application user. They said that granting rights on ``X$`` is not an option, which is correct. However, is it an option
 to mess up the dictionary?
 
-Why it is a bad idea to mess up the dictionary?
+Why It Is a Bad Idea To Mess Up The Dictionary?
 -----------------------------------------------
 
 Good question, let's see:
@@ -26,7 +27,7 @@ Good question, let's see:
   1. because you may invalidate critical catalog objects. Have a look [here](http://dirknachbar.blogspot.ro/2011/11/why-you-should-never-create-own-objects.html).
   1. because you may have problems deploying such an application to a customer who cares about its Oracle database
 
-A better way
+A Better Way
 ------------
 
 Have you heard about [APEX](https://apex.oracle.com/i/)? It has an interesting behavior: it may impersonate and execute code on behalf of another user. But this

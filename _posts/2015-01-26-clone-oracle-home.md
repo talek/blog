@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Cloning an Oracle Home
+comments: true
 ---
 
 Cloning an Oracle home is required from time to time. The big advantage of

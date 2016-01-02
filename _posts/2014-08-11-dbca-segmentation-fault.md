@@ -1,7 +1,7 @@
 ---
 layout: post
 title: DBCA segmentation fault
-Date: 2014-08-11
+comments: true
 ---
 
 Finally, I have succeeded to install the Oracle 12.1.0.2 database! Big deal,

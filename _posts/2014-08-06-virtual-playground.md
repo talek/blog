@@ -1,6 +1,7 @@
 ---
 layout: post
 title: My Portable Oracle Playground
+comments: true
 ---
 
 Have I told you I bought a new laptop? Yep, it's a [Lenovo

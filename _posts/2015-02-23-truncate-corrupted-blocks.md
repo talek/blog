@@ -1,6 +1,7 @@
 ---
 layout: post
 title: TRUNCATE a Table with Corrupted Blocks
+comments: true
 ---
 
 The customer reported that a block corruption error is logged in one of his
