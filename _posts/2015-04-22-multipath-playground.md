@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Multipath Playground
+comments: true
 ---
 
 The vast majority of production Oracle database installations takes now advantage
@@ -61,7 +62,7 @@ Next, go to "Volumes/Volume Groups" and create a volume group called "oracle".
 Now, we can create the logical volumes. Go to "Volumes/Add Volume" and create a
 new volume of type "block". I gave 10G and I call it `jupiter1`.
 
-It's time now to configure our openfiler as an iSCSI target server. Go to
+It's now time to configure our openfiler as an iSCSI target server. Go to
 "Volumes/iSCSI Targets/Target Configuration". Add the following Target IQN:
 `iqn.2006-01.com.openfiler:jupiter`. Then go, to "LUN Mapping" and map this
 volume. We also need to configure ACLs on the volume level using the "Network
