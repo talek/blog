@@ -5,12 +5,12 @@ comments: true
 ---
 
 One of the customers handed over to us a delivery script to be executed under SYS. We took a look and, guess what? They wanted
-to create some objects in the ``SYS`` schema. What? Focus on our WTF face... No, no! Why? We rejected the change and asked for
-details. In short, their explanation was that the application needs to dynamically change a hidden parameter using the ``ALTER
-SESSION`` command, but they also want to know the value of that parameter before the change so that to be able to restore it
+to create some objects in the `SYS` schema. What? Focus on our WTF face... No, no! Why? We rejected the change and asked for
+details. In short, their explanation was that the application needs to dynamically change a hidden parameter using the `ALTER
+SESSION` command, but they also want to know the value of that parameter before the change so that to be able to restore it
 to its previous value. It was something related to a particular report which was running slow without this hidden parameter. So, 
-their R&D department came up with this idea of creating a view in ``SYS`` based on some ``X$`` views and granting ``SELECT`` rights on this
-view to the application user. They said that granting rights on ``X$`` is not an option, which is correct. However, is it an option
+their R&D department came up with this idea of creating a view in `SYS` based on some `X$` views and granting `SELECT` rights on this
+view to the application user. They said that granting rights on `X$` is not an option, which is correct. However, is it an option
 to mess up the dictionary?
 
 Why It Is a Bad Idea To Mess Up The Dictionary?
@@ -31,19 +31,19 @@ A Better Way
 ------------
 
 Have you heard about [APEX](https://apex.oracle.com/i/)? It has an interesting behavior: it may impersonate and execute code on behalf of another user. But this
-feature, not documented, is around for a long time. The key is the ``DBMS_SYS_SQL`` package. So, the plan is this:
+feature, not documented, is around for a long time. The key is the `DBMS_SYS_SQL` package. So, the plan is this:
 
-  1. create an ``APP_ADMIN`` user:
+  1. create an `APP_ADMIN` user:
 
         grant create session,
               create procedure
            to app_admin identified by <pwd>.
 
-  1. grant ``EXECUTE`` privilege on ``DBMS_SYS_SQL`` package to ``APP_ADMIN``:
+  1. grant `EXECUTE` privilege on `DBMS_SYS_SQL` package to `APP_ADMIN`:
 
         grant execute on dbms_sys_sql to app_admin;
 
-  1. in ``APP_ADMIN`` create the following function:
+  1. in `APP_ADMIN` create the following function:
 
         create or replace function get_hidden_param(param_name varchar2)
           return varchar2
@@ -73,7 +73,7 @@ feature, not documented, is around for a long time. The key is the ``DBMS_SYS_SQ
         end;
         /
 
-  1. grant ``EXECUTE`` rights on the above function to the application user:
+  1. grant `EXECUTE` rights on the above function to the application user:
 
         grant execute on get_hidden_param to <app_user>;
 
@@ -100,10 +100,10 @@ Conclusion
 
   1. If you can, you should rely as less as possible to any internal/hidden/undocumented features
   1. If you really have to do it, then be gentle at least with the system. Don't mess up the dictionary!
-  1. The ``APP_ADMIN`` user is a very powerful user, now that it has the DBMS_SYS_SQL granted. But so is SYS and if
+  1. The `APP_ADMIN` user is a very powerful user, now that it has the `DBMS_SYS_SQL` granted. But so is SYS and if
      you were to choose between creating objects directly in SYS and isolating sensible/powerful code in
      another highly protected user, I'd rather vote for the second approach.
-  1. Because DBMS_SYS_SQL is used a lot in APEX and in other Oracle products I expect to stay around for a while.
+  1. Because `DBMS_SYS_SQL` is used a lot in APEX and in other Oracle products I expect to stay around for a while.
      This is a legitimate concern: as soon as you create a dependency between your code and an undocumented
      Oracle feature you're at the mercy of Oracle. They may remove or change that feature without any
      warnings and then everything will break deep down in your application guts.
