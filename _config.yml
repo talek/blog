@@ -12,7 +12,7 @@ tagline:          'Random Thoughts...'
 description:      'Notes, random thougths, whatever...'
 url:              http://talek.github.io/blog/
 #baseurl:          http://talek.github.io/blog/
-baseurl:          "blog/"
+baseurl:          ""
 
 author:
   name:           'Alexandru Tica'
