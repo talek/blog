@@ -8,8 +8,8 @@ relative_permalinks: true
 
 # Setup
 title:            Alec's Blog
-tagline:          'Random Thoughts...'
-description:      'Notes, random thougths, whatever...'
+tagline:          'Notes, random thoughts, ideas...'
+description:      'Notes, random thougths, ideas...'
 url:              http://talek.github.io/blog
 baseurl:          http://talek.github.io/blog/
 #baseurl:          "/"
