@@ -43,4 +43,6 @@ the subject. However, in the note they claim that they managed to fix it in
 As always, Oracle upgrades are such a joy. Expect the unexpected... Anyways, I'm
 starting to have doubts that using the `DATA_PUMP_DIR` directory is such a good
 idea. In the light of what happen, I think it's always better to create and use
-your own oracle directory.
+your own oracle directory. Not to mention, `DATA_PUMP_DIR` can't be used from
+within a pluggable database if you plan to use this option on a 12c
+database.
