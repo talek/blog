@@ -34,7 +34,7 @@ Everything went smooth until I ran the `root.sh` script. I ended up with:
 Stupid! Our sysadmin set a global `http_proxy` variable which confused `sqlplus`
 and, by extension, the `root.sh` script.
 
-Wouldn't be a good idea `cluvfy` to check also if this variable correctly set
+Wouldn't be a good idea `cluvfy` to check also if this variable is correctly set
 (or unset)?
 
 Until then, I put this as a note to myself: don't forget to always unset
