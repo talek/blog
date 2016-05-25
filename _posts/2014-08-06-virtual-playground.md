@@ -50,9 +50,11 @@ known virtualization tool (yep, I know you know it), VirtualBox. Unlike its
 counter part, [VMWare](http://www.vmware.com/), I like VirtualBox more because
 of its simplicity. Maybe also because of my bias for Oracle, Virtualbox being
 under the same Oracle umbrella? Guilty as charged!  Of course, there are also
-many things I don't like when it comes to Virtualbox. For example, why is it not
+many things I don't like when it comes to Virtualbox. For example, why it is not
 possible to detach the window of a running VM? I know I can use the headless
 mode, but still...
+
+**Note:** Recent versions of VMWare knows about the "detachable start" feature.
 
 Let's summarize the main goals I want to achieve:
 
