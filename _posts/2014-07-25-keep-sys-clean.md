@@ -35,65 +35,65 @@ feature, not documented, is around for a long time. The key is the `DBMS_SYS_SQL
 
   1. create an `APP_ADMIN` user:
 
-        grant create session,
-              create procedure
-           to app_admin identified by <pwd>.
+          grant create session,
+                create procedure
+             to app_admin identified by <pwd>.
 
   1. grant `EXECUTE` privilege on `DBMS_SYS_SQL` package to `APP_ADMIN`:
 
-        grant execute on dbms_sys_sql to app_admin;
+          grant execute on dbms_sys_sql to app_admin;
 
   1. in `APP_ADMIN` create the following function:
 
-        create or replace function get_hidden_param(param_name varchar2)
-          return varchar2
-        as
-          l_uid number;
-          l_sqltext varchar2(300) := 'select b.ksppstvl value
-                                      from sys.x$ksppi a, sys.x$ksppcv b
-                                      where a.indx = b.indx
-                                        and a.ksppinm = :param_name';
-          l_myint integer;
-          l_value varchar2(100);
-          l_result number;
-        begin
-          select user_id into l_uid from all_users where username like 'SYS';
+          create or replace function get_hidden_param(param_name varchar2)
+            return varchar2
+          as
+            l_uid number;
+            l_sqltext varchar2(300) := 'select b.ksppstvl value
+                                        from sys.x$ksppi a, sys.x$ksppcv b
+                                        where a.indx = b.indx
+                                          and a.ksppinm = :param_name';
+            l_myint integer;
+            l_value varchar2(100);
+            l_result number;
+          begin
+            select user_id into l_uid from all_users where username like 'SYS';
 
-          l_myint:=sys.dbms_sys_sql.open_cursor();
-          sys.dbms_sys_sql.parse_as_user(l_myint, l_sqltext,
-                                         dbms_sql.native, l_uid);
-          sys.dbms_sys_sql.bind_variable(l_myint, 'param_name', param_name);
-          sys.dbms_sys_sql.define_column(l_myint, 1, l_value, 100);
-          l_result := sys.dbms_sys_sql.execute(l_myint);
-          if sys.dbms_sql.fetch_rows(l_myint) > 0 then
-            dbms_sql.column_value(l_myint, 1, l_value);
-          end if;
-          sys.dbms_sys_sql.close_cursor(l_myint);
-          return l_value;
-        end;
-        /
+            l_myint:=sys.dbms_sys_sql.open_cursor();
+            sys.dbms_sys_sql.parse_as_user(l_myint, l_sqltext,
+                                           dbms_sql.native, l_uid);
+            sys.dbms_sys_sql.bind_variable(l_myint, 'param_name', param_name);
+            sys.dbms_sys_sql.define_column(l_myint, 1, l_value, 100);
+            l_result := sys.dbms_sys_sql.execute(l_myint);
+            if sys.dbms_sql.fetch_rows(l_myint) > 0 then
+              dbms_sql.column_value(l_myint, 1, l_value);
+            end if;
+            sys.dbms_sys_sql.close_cursor(l_myint);
+            return l_value;
+          end;
+          /
 
   1. grant `EXECUTE` rights on the above function to the application user:
 
-        grant execute on get_hidden_param to <app_user>;
+          grant execute on get_hidden_param to <app_user>;
 
   1. now, from the application user we can play around:
 
-        18:56:20 SQL> select app_admin.get_hidden_param('_optimizer_mjc_enabled') special_param from dual;
+          18:56:20 SQL> select app_admin.get_hidden_param('_optimizer_mjc_enabled') special_param from dual;
 
-        SPECIAL_PARAM
-        -------------
-        FALSE
+          SPECIAL_PARAM
+          -------------
+          FALSE
 
-        18:56:22 SQL> alter session set "_optimizer_mjc_enabled"=true;
+          18:56:22 SQL> alter session set "_optimizer_mjc_enabled"=true;
 
-        Session altered.
+          Session altered.
 
-        18:56:24 SQL> select app_admin.get_hidden_param('_optimizer_mjc_enabled') special_param from dual;
+          18:56:24 SQL> select app_admin.get_hidden_param('_optimizer_mjc_enabled') special_param from dual;
 
-        SPECIAL_PARAM
-        -------------
-        TRUE
+          SPECIAL_PARAM
+          -------------
+          TRUE
 
 Conclusion
 ----------
