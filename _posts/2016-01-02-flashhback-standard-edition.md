@@ -17,7 +17,7 @@ speed point of view, especially because we need to copy those big files when the
 transportable set is created and, again, as part of the restore, when we need to
 revert back.
 
-In addition, we want this to work even on an Oracle standard edition.
+<s>In addition, we want this to work even on an Oracle standard edition.</s>
 
 ## The Idea
 
@@ -312,8 +312,8 @@ If the snapshot is not needed anymore it can be deleted with:
 
 The main advantages for this solution are:
 
-  * no need for an Oracle enterprise edition. It's working with a standard
-    edition without any problems.
+  * <s>no need for an Oracle enterprise edition. It's working with a standard
+    edition without any problems.</s>
   * no need to have the database in `ARCHIVELOG`.
   * no flashback logs needed.
   * schema level flashback.
